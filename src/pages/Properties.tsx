@@ -2,41 +2,41 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { FaBed, FaBath, FaCar } from "react-icons/fa";
 import { useState, useMemo } from "react";
 
+const properties = [
+  {
+    id: 1,
+    name: "Two Bedroom Townhouse",
+    location: "East Legon",
+    price: "$49,000",
+    bed: 2,
+    image:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    id: 2,
+    name: "Three Bedroom Apartment",
+    location: "Airport Residential",
+    price: "$79,000",
+    bed: 3,
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+  {
+    id: 3,
+    name: "Four Bedroom Detached",
+    location: "East Legon",
+    price: "$500,000",
+    bed: 4,
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+  },
+];
 const Properties = () => {
   const [filter, setFilter] = useState("All");
   const [bedFilter, setBedFilter] = useState("Any");
   const [priceFilter, setPriceFilter] = useState("Any");
-  const [sort, setSort] = useState("newest"); // { changed code }
+  const [sort, setSort] = useState("newest"); 
 
-  const properties = [
-    {
-      id: 1,
-      name: "Two Bedroom Townhouse",
-      location: "East Legon",
-      price: "$250,000",
-      bed: 2,
-      image:
-        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    },
-    {
-      id: 2,
-      name: "Three Bedroom Apartment",
-      location: "Airport Residential",
-      price: "$300,000",
-      bed: 3,
-      image:
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    },
-    {
-      id: 3,
-      name: "Four Bedroom Detached",
-      location: "Cantonments",
-      price: "$500,000",
-      bed: 4,
-      image:
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    },
-  ];
 
   const featured = [
     {
@@ -73,7 +73,7 @@ const Properties = () => {
         ? [0, Number.POSITIVE_INFINITY]
         : priceFilter.split("-").map(Number);
 
-    let list = properties.filter((property) => {
+      const list = properties.filter((property) => {
       const locationMatch = filter === "All" || property.location === filter;
       const bedMatch = bedFilter === "Any" || property.bed === Number(bedFilter);
       const price = parsePrice(property.price);
@@ -147,9 +147,9 @@ const Properties = () => {
                 onChange={(e) => setPriceFilter(e.target.value)} value={priceFilter}
             className="border-2 border-gray-400 p-2 mt-2">
               <option value="Any">Any Price</option>
-              <option value="$49,000">$49,000</option>
-              <option value="$79,000">$79,000</option>
-              <option value="$395,000">$395,000</option>
+              <option value="0-49,000">$49,000</option>
+              <option value="50,000-79,000">$79,000</option>
+              <option value="80,000-395,000">$395,000</option>
             </select>
           </div>
 
@@ -254,7 +254,7 @@ const Properties = () => {
                   </div>
                 </div>
               </div>
-              <a className="p-2 bg-blue-400 w-[130px] text-white font-bold rounded-md mt-1 cursor-pointer">
+              <a href="/property" className="p-2 bg-blue-400 w-[130px] text-white font-bold rounded-md mt-1 cursor-pointer">
                 View Details
               </a>
             </div>
