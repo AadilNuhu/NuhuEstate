@@ -1,6 +1,4 @@
 import { FaArrowDown, FaGraduationCap, FaTrophy, FaHome, FaArrowRight, FaUsers } from "react-icons/fa"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
 import { FaHandshake, FaLightbulb } from "react-icons/fa";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
 
