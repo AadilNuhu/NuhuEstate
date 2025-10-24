@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-3xl font-medium text-gray-900">Nuhu<span className='text-blue-400'>Estate</span></span>
+            <span className="text-3xl font-medium text-gray-200">Nuhu<span className='text-blue-400'>Estate</span></span>
           </div>
 
           {/* Desktop Links */}
